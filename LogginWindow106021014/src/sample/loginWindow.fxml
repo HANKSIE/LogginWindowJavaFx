@@ -80,6 +80,11 @@
                         <Font size="24.0" />
                      </font>
                   </PasswordField>
+                  <Label prefHeight="24.0" prefWidth="320.0" text="提示: 按下密碼輸入盒後按下enter可以呼叫小鍵盤" translateX="150.0" translateY="60.0" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </center>

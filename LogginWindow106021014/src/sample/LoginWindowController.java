@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,20 +18,33 @@ import java.util.ResourceBundle;
 
 public class LoginWindowController implements Initializable {
 
-    @FXML Button login, exit;
-    @FXML TextField account;
-    @FXML PasswordField password;
+    @FXML private Button login, exit;
+    @FXML private TextField account;
+    @FXML private PasswordField password;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        password.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                StageManager.getStage("keyboardStage").show();
+                SaveReference.addReference("password",password);
+            }
+        });
+
         login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                StageManager.stageArr.get("keyboardStage").show();
-                SaveReference.addReference("password",password);
-                SaveReference.addReference("login",login);
-                login.setDisable(true);
+
+                if (password.getText().equals("520520") && account.getText().equals("hello@gmail.com")){
+                    StageManager.getStage("mainWindowStage").show();
+                    account.setText("");
+                    password.setText("");
+                }else {
+                    JOptionPane.showMessageDialog(null, "帳號錯誤或密碼錯誤", "警告", JOptionPane.INFORMATION_MESSAGE );;
+                }
+
             }
         });
 
@@ -39,6 +54,7 @@ public class LoginWindowController implements Initializable {
                 System.exit(0);
             }
         });
+
 
     }
 

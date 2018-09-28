@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class SaveReference{
 
-    static HashMap<String, Object> objArr = new HashMap<String, Object> ();
+    private static HashMap<String, Object> objArr = new HashMap<String, Object> ();
 
     public static void addReference(String name, Object obj){
         objArr.put(name, obj);

@@ -14,18 +14,20 @@ import java.util.HashMap;
 public class StageManager {
 
     //利用健值存放Stage
-    static HashMap<String ,Stage> stageArr = new HashMap<String, Stage>();
+    private static HashMap<String ,Stage> stageArr = new HashMap<String, Stage>();
 
     //加入Stage
-    public static void addStage(String name,String resource,int width, int height){
+    public static void addStage(String name,String title,String resource,int width, int height){
         Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.setTitle(title);
         Scene scene = new Scene(loadStage(resource),width,height);
         stage.setScene(scene);
         stageArr.put(name,stage);
     }
 
     //載入Stage
-    public static Parent loadStage(String resource) {
+    private  static Parent loadStage(String resource) {
         Parent root = null;
         try {
             root = FXMLLoader.load(StageManager.class.getResource(resource));
@@ -33,6 +35,10 @@ public class StageManager {
             e.printStackTrace();
         }
         return root;
+    }
+
+    public static Stage getStage(String name){
+        return stageArr.get(name);
     }
 
 }

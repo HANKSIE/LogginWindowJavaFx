@@ -16,9 +16,9 @@ import java.util.ResourceBundle;
 
 public class KeyboardController implements Initializable {
 
-    @FXML Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,delete,submit;
-    @FXML Label show;
-    Button btnArr[] = new Button[10];
+    @FXML private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,delete,submit;
+    @FXML private Label show;
+    private Button btnArr[] = new Button[10];
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -70,11 +70,10 @@ public class KeyboardController implements Initializable {
         submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 PasswordField p = (PasswordField) SaveReference.getReference("password");
-                Button l = (Button) SaveReference.getReference("login");
                 p.setText(show.getText());
-                l.setDisable(false);
-                StageManager.stageArr.get("keyboardStage").close();
+                StageManager.getStage("keyboardStage").close();
 
             }
         });

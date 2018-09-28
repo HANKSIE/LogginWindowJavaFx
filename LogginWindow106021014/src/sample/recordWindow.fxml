@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="274.0" prefWidth="397.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RecordWindowController">
+   <children>
+      <HBox prefHeight="342.0" prefWidth="496.0">
+         <children>
+            <VBox prefHeight="296.0" prefWidth="256.0">
+               <children>
+                  <Label prefHeight="57.0" prefWidth="247.0" text="玩家&quot;o&quot;獲勝次數:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="247.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="247.0" text="玩家&quot;x&quot;獲勝次數:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="247.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="247.0" text="平局次數:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="296.0" prefWidth="243.0">
+               <children>
+                  <Label fx:id="owinCount" prefHeight="57.0" prefWidth="183.0" text="0次" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="183.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="183.0" text="0次" fx:id="xwinCount">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="183.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="flatCount" prefHeight="57.0" prefWidth="183.0" text="0次">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
