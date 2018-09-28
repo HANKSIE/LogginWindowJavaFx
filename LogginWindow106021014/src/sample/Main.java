@@ -3,20 +3,17 @@ package sample;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-
 public class Main extends Application {
-
-    StageManager stageManager = new StageManager();
-    ObjectManager objectManager = new ObjectManager();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        //將Stage載入StageManager
+        StageManager.addStage("loginStage","loginWindow.fxml",500,500);
+        StageManager.addStage("keyboardStage","keyboard.fxml",225,232);
+        StageManager.addStage("mainWindowStage","mainWindow.fxml",250,250);
+        //顯示登入視窗
+        StageManager.stageArr.get("loginStage").show();
 
-        stageManager.addStage("loginStage","loginWindow.fxml",700,700);
-        stageManager.getStage("loginStage").show();
-        stageManager.addStage("keyboardStage","keyboard.fxml",250,250);
-//        objectManager.add("password",stageManager.loadStage("loginWindow.fxml"));
-//        objectManager.add("submit",stageManager.loadStage("keyboard.fxml"));
 
     }
 
