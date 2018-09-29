@@ -10,6 +10,10 @@ public class SaveReference{
 
     private static HashMap<String, Object> objArr = new HashMap<String, Object> ();
 
+    public SaveReference(){
+        throw new Error("This is a static class");
+    }
+    
     public static void addReference(String name, Object obj){
         objArr.put(name, obj);
     }
