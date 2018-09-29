@@ -24,7 +24,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem fx:id="none" mnemonicParsing="false" text="rule" />
+                    <MenuItem mnemonicParsing="false" text="none" />
                   </items>
                 </Menu>
               </menus>
