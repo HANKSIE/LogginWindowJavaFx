@@ -16,6 +16,10 @@ public class StageManager {
     //利用健值存放Stage
     private static HashMap<String ,Stage> stageArr = new HashMap<String, Stage>();
 
+    public StageManager(){
+        throw new Error("This is a static class");
+    }
+    
     //加入Stage
     public static void addStage(String name,String title,String resource,int width, int height){
         Stage stage = new Stage();
