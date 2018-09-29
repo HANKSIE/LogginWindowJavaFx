@@ -15,8 +15,8 @@ public class Main extends Application {
         StageManager.addStage("ooxxStage","ooxx","ooxxWindow.fxml",300,300);
         StageManager.addStage("recordStage","record","recordWindow.fxml",300,300);
         //顯示登入視窗
-        //StageManager.getStage("loginStage").show();
-        StageManager.getStage("mainWindowStage").show();
+        StageManager.getStage("loginStage").show();
+
     }
 
 

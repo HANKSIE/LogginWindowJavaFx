@@ -43,7 +43,7 @@
                       <Button fx:id="btn9" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                       <Button fx:id="btn6" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                       <Button fx:id="btn3" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                      <Button fx:id="delete" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="-&gt;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                      <Button fx:id="delete" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="&lt;-" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                       <Button fx:id="btn0" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="0" GridPane.rowIndex="5" />
                       <Button fx:id="btn8" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                       <Button fx:id="btn7" mnemonicParsing="false" prefHeight="50.0" prefWidth="99.0" text="7" GridPane.rowIndex="4" />
