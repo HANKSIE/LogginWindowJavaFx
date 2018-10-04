@@ -25,6 +25,7 @@ public class MainWindowController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 StageManager.getStage("ooxxStage").show();
+                StageManager.getStage("mainWindowStage").hide();
             }
         });
 

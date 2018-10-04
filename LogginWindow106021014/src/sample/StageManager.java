@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -22,14 +24,21 @@ public class StageManager {
     
     //加入Stage
     public static void addStage(String name,String title,String resource,int width, int height){
-        Stage stage = new Stage();
-        stage.setResizable(false);
-        stage.setTitle(title);
-        Scene scene = new Scene(loadStage(resource),width,height);
-        stage.setScene(scene);
-        stageArr.put(name,stage);
-    }
 
+        if (stageArr.containsKey(name)){
+            System.out.println("使用了重複的名字");
+        }else {
+
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle(title);
+            Scene scene = new Scene(loadStage(resource),width,height);
+            stage.setScene(scene);
+            stageArr.put(name,stage);
+
+        }
+
+    }
     //載入Stage
     private  static Parent loadStage(String resource) {
         Parent root = null;
@@ -43,6 +52,10 @@ public class StageManager {
 
     public static Stage getStage(String name){
         return stageArr.get(name);
+    }
+
+    public static void deleteStage(String name){
+        stageArr.remove(name);
     }
 
 }

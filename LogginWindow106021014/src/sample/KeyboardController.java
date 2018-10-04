@@ -8,7 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.function.Function;
 
 /*========================
 小鍵盤視窗的Controller
@@ -35,6 +37,41 @@ public class KeyboardController implements Initializable {
         btnArr[9] = btn9;
 
         setComps();
+        refresh();
+
+    }
+
+    public void refresh(){
+
+        Random rand = new Random();
+        int count = 0;
+        boolean flag = false;
+
+        for (int i=0; i<10; i++){
+            btnArr[i].setText("");
+        }
+
+        while (count != 10){
+
+            int r = rand.nextInt(10);
+
+            for (int i=count; i>=0; i--){
+                if (Integer.toString(r).equals(btnArr[i].getText())){
+                    flag = false;
+                    break;
+                }else {
+                    flag = true;
+                }
+            }
+
+            if (flag){
+                btnArr[count].setText(Integer.toString(r));
+                count++;
+            }
+
+        }
+
+
 
     }
 

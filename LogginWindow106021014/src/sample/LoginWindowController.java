@@ -7,8 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.WindowEvent;
 
 import javax.swing.*;
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,7 +18,7 @@ import java.util.ResourceBundle;
 登入視窗的Controller
 ========================*/
 
-public class LoginWindowController implements Initializable {
+public class LoginWindowController extends Component implements Initializable {
 
     @FXML private Button login, exit;
     @FXML private TextField account;
@@ -28,8 +30,11 @@ public class LoginWindowController implements Initializable {
         password.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                StageManager.deleteStage("keyboardStage");
+                StageManager.addStage("keyboardStage","小鍵盤","keyboard.fxml",225,232);
                 StageManager.getStage("keyboardStage").show();
                 SaveReference.addReference("password",password);
+
             }
         });
 
@@ -39,10 +44,9 @@ public class LoginWindowController implements Initializable {
 
                 if (password.getText().equals("520520") && account.getText().equals("hello@gmail.com")){
                     StageManager.getStage("mainWindowStage").show();
-                    account.setText("");
-                    password.setText("");
+                    StageManager.getStage("loginStage").close();
                 }else {
-                    JOptionPane.showMessageDialog(null, "帳號錯誤或密碼錯誤", "警告", JOptionPane.INFORMATION_MESSAGE );;
+                    JOptionPane.showMessageDialog(null, "帳號錯誤或密碼錯誤", "警告", JOptionPane.INFORMATION_MESSAGE );
                 }
 
             }

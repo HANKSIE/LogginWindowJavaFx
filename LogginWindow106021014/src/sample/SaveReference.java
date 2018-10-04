@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.HashMap;
+import java.util.Random;
 
 /*========================
 管理Reference的static類別

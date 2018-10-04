@@ -103,6 +103,7 @@ public class OoxxController { //控制元件行為的類別
     }
 
     public void exit(){
+        StageManager.getStage("mainWindowStage").show();
         StageManager.getStage("ooxxStage").close();
     }
 
