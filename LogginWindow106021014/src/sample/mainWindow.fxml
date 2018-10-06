@@ -17,9 +17,10 @@
                     <MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="View">
+                <Menu mnemonicParsing="false" text="Tool">
                      <items>
                         <MenuItem fx:id="record" mnemonicParsing="false" text="record" />
+                         <MenuItem fx:id="encrypt" mnemonicParsing="false" text="encrypt" />
                      </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
