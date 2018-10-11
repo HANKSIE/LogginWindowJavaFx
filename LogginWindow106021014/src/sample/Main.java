@@ -22,7 +22,7 @@ public class Main extends Application {
         });
 
         //顯示登入視窗
-        StageManager.getStage("loginStage").show();
+        //StageManager.getStage("loginStage").show();
         StageManager.getStage("encryptStage").show();
 
     }

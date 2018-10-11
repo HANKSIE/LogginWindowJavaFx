@@ -11,10 +11,13 @@
    <children>
       <BorderPane layoutX="1.0" layoutY="4.0" prefHeight="385.0" prefWidth="482.0">
          <left>
-            <TextArea fx:id="input" prefHeight="385.0" prefWidth="191.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="input" prefHeight="385.0" prefWidth="191.0" promptText="輸入要加解密的文字" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <TextArea fx:id="output" editable="false" prefHeight="385.0" prefWidth="191.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="output" editable="false" prefHeight="385.0" prefWidth="191.0" promptText="加解密後的文字" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></TextArea>
          </right>
          <center>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
@@ -42,17 +45,27 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Group>
-                     <children>
-                        <RadioButton fx:id="encrypt" mnemonicParsing="false" text="Encrypt" />
-                        <RadioButton fx:id="decrypt" mnemonicParsing="false" text="Decrypt" />
-                     </children>
+                  <RadioButton fx:id="encrypt" mnemonicParsing="false" selected="true" text="Encrypt">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupBtn" />
+                     </toggleGroup>
                      <VBox.margin>
                         <Insets top="10.0" />
-                     </VBox.margin></Group>
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="decrypt" mnemonicParsing="false" text="Decrypt" toggleGroup="$groupBtn">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <Button fx:id="clear" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Clear">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button fx:id="run" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Run">
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
                   <Button fx:id="close" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Close">
@@ -63,6 +76,28 @@
                </children>
             </VBox>
          </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="open" mnemonicParsing="false" text="Open" />
+                        <MenuItem fx:id="save" mnemonicParsing="false" text="Save" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>
