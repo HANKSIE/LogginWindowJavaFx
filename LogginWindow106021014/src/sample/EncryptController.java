@@ -31,6 +31,7 @@ public class EncryptController implements Initializable {
     private MenuItem open, save;
 
     private JFileChooser jfc = new JFileChooser(); //開啟檔案選擇器
+    private Alert alert = new Alert(Alert.AlertType.INFORMATION);
     private boolean isCaesar = false; //是否有選擇凱薩加密法
     private boolean isChoosedMethod = false; //是否有選擇任何加密法
 
@@ -66,13 +67,21 @@ public class EncryptController implements Initializable {
                             output.setText(str);
                         }catch (NumberFormatException e){
                             //顯示警告訊息彈出視窗
-                            JOptionPane.showMessageDialog(null,"輸入的加密文字1.不是數字2.未輸入3.超出範圍","警告",JOptionPane.INFORMATION_MESSAGE );
+                            alert.setHeaderText("輸入的加密文字1.不是數字2.未輸入3.超出範圍");
+                            alert.setTitle("警告");
+                            alert.setWidth(250);
+                            alert.setHeight(90);
+                            alert.show();
                         }
                     }
 
                 }else {
                     //顯示警告訊息彈出視窗
-                    JOptionPane.showMessageDialog(null,"未選擇加密法","警告",JOptionPane.INFORMATION_MESSAGE );
+                    alert.setHeaderText("未選擇加密法");
+                    alert.setTitle("警告");
+                    alert.setWidth(250);
+                    alert.setHeight(90);
+                    alert.show();
                 }
 
             }
@@ -127,7 +136,7 @@ public class EncryptController implements Initializable {
 
                     }catch (IOException e){
                         //丟錯誤訊息
-                        JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
+                        JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE);
                     }
 
                 }
