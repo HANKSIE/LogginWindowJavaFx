@@ -35,6 +35,16 @@ public class EncryptController implements Initializable {
     private boolean isCaesar = false; //是否有選擇凱薩加密法
     private boolean isChoosedMethod = false; //是否有選擇任何加密法
 
+
+    public void showAlertWindow(String title,String message){
+        alert.setHeaderText(message);
+        alert.setTitle(title);
+        alert.setWidth(250);
+        alert.setHeight(90);
+        alert.show();
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -42,7 +52,6 @@ public class EncryptController implements Initializable {
             @Override
 
             public void handle(ActionEvent event) {
-
                 if (isChoosedMethod){
 
                     if (isCaesar){
@@ -67,24 +76,17 @@ public class EncryptController implements Initializable {
                             output.setText(str);
                         }catch (NumberFormatException e){
                             //顯示警告訊息彈出視窗
-                            alert.setHeaderText("輸入的加密文字1.不是數字2.未輸入3.超出範圍");
-                            alert.setTitle("警告");
-                            alert.setWidth(250);
-                            alert.setHeight(90);
-                            alert.show();
+                            showAlertWindow("警告","輸入的加密文字1.不是數字2.未輸入3.超出範圍");
                         }
                     }
 
                 }else {
                     //顯示警告訊息彈出視窗
-                    alert.setHeaderText("未選擇加密法");
-                    alert.setTitle("警告");
-                    alert.setWidth(250);
-                    alert.setHeight(90);
-                    alert.show();
+                    showAlertWindow("警告","未選擇加密法");
                 }
 
             }
+
         });
 
         close.setOnAction(new EventHandler<ActionEvent>() {
@@ -137,6 +139,8 @@ public class EncryptController implements Initializable {
                     }catch (IOException e){
                         //丟錯誤訊息
                         JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE);
+                    }catch (Exception e){
+                        JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
                     }
 
                 }
@@ -160,6 +164,10 @@ public class EncryptController implements Initializable {
                     fw.close();
 
                 }catch (IOException e){
+                    JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
+                }catch (NullPointerException e){
+                    JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
+                }catch (Exception e){
                     JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
                 }
             }
