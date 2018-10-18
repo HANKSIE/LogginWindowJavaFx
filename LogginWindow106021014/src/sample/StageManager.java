@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -17,6 +18,10 @@ public class StageManager {
 
     //利用健值存放Stage
     private static HashMap<String ,Stage> stageArr = new HashMap<String, Stage>();
+    private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private static int screenW = screenSize.width;
+    private static int screenH = screenSize.height;
+
 
     public StageManager(){
         throw new Error("This is a static class");
@@ -30,6 +35,8 @@ public class StageManager {
         }else {
 
             Stage stage = new Stage();
+            stage.setX(screenW/2 - width/2);
+            stage.setY(screenH/2 - height/2);
             stage.setResizable(false);
             stage.setTitle(title);
             Scene scene = new Scene(loadStage(resource),width,height);

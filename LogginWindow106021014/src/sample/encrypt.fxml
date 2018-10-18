@@ -30,6 +30,7 @@
                   <MenuButton fx:id="methodMenu" mnemonicParsing="false" text="加密法">
                     <items>
                       <MenuItem fx:id="caesar" mnemonicParsing="false" text="Caesar" />
+                        <MenuItem mnemonicParsing="false" text="XOR" fx:id="xor" />
                     </items>
                      <VBox.margin>
                         <Insets top="10.0" />

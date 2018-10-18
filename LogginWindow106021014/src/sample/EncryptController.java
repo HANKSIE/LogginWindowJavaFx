@@ -20,7 +20,7 @@ public class EncryptController implements Initializable {
     @FXML
     private MenuButton methodMenu; //選擇加密法的MenuButton
     @FXML
-    private MenuItem caesar; //凱薩加密法選項的MenuItem
+    private MenuItem caesar, xor; //凱薩加密法選項的MenuItem
     @FXML
     private RadioButton encrypt, decrypt; //解密或加密的單選按鈕
     @FXML
@@ -30,9 +30,10 @@ public class EncryptController implements Initializable {
     @FXML
     private MenuItem open, save;
 
-    private JFileChooser jfc = new JFileChooser(); //開啟檔案選擇器
+    private JFileChooser jfc = new JFileChooser(); //檔案選擇器
     private Alert alert = new Alert(Alert.AlertType.INFORMATION);
     private boolean isCaesar = false; //是否有選擇凱薩加密法
+    private boolean isXor = false; //是否有選擇XOR加密法
     private boolean isChoosedMethod = false; //是否有選擇任何加密法
 
 
@@ -54,7 +55,50 @@ public class EncryptController implements Initializable {
             public void handle(ActionEvent event) {
                 if (isChoosedMethod){
 
-                    if (isCaesar){
+                    //==========================XOR==========================
+                    if (isXor){ //選擇XOR加密法
+
+                        //捕捉例外
+                        try {
+                            String str = "";
+                            char key[] = num.getText().toCharArray();
+
+                            if (encrypt.isSelected()) { //單選按鈕encrypt被選擇.
+
+                                //取得加密後文字
+                                for (int i = 0; i < input.getText().length(); i++) {
+                                    if (input.getText().charAt(i) == '\n') {
+                                        str += '\n'; //換行
+                                    } else {
+                                        //加密
+                                        str += (char) ((int) input.getText().charAt(i)  ^ (int) key[i % key.length]);
+                                    }
+                                }
+
+
+                            } else { //單選按鈕decrypt被選擇
+
+                                //取得加密後文字
+                                for (int i = 0; i < input.getText().length(); i++) {
+                                    if (input.getText().charAt(i) == '\n') {
+                                        str += '\n'; //換行
+                                    } else {
+                                        //加密
+                                        str += (char) ((int) input.getText().charAt(i)  ^ (int) key[i % key.length]);
+                                    }
+                                }
+                            }
+
+                            output.setText(str);
+
+                        }catch (Exception e){
+                            //顯示警告訊息彈出視窗
+                            showAlertWindow("警告", "Error:"+e.getMessage());
+                        }
+
+                    }
+                    //==========================Caesar==========================
+                    if (isCaesar){ //選擇Caesar加密法
 
                         String str = "";
 
@@ -63,13 +107,27 @@ public class EncryptController implements Initializable {
                             if (encrypt.isSelected()){ //單選按鈕encrypt被選擇
                                 //取得加密後文字
                                 for (int i=0; i<input.getText().length(); i++){
-                                    str += (char)((int)(input.getText().charAt(i)) + Integer.parseInt(num.getText()));
+                                    //如果輸入文字讀取字元時遇到換行字元
+                                    if (input.getText().charAt(i) =='\n') {
+                                        str+='\n'; //換行
+                                    }else {
+                                        //加密
+                                        str += (char)((int)(input.getText().charAt(i)) + Integer.parseInt(num.getText()));
+                                    }
+
                                 }
 
                             }else { //單選按鈕decrypt被選擇
                                 //取得解密後文字
+
                                 for (int i=0; i<input.getText().length(); i++){
-                                    str += (char)((int)(input.getText().charAt(i)) - Integer.parseInt(num.getText()));
+                                    if (input.getText().charAt(i) =='\n') {
+                                        str+='\n'; //換行
+                                    }else {
+                                        //加密
+                                        str += (char)((int)(input.getText().charAt(i)) - Integer.parseInt(num.getText()));
+                                    }
+
                                 }
                             }
                             //設定加密後文字在output
@@ -114,6 +172,15 @@ public class EncryptController implements Initializable {
             }
         });
 
+        xor.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                methodMenu.setText("XOR");
+                isXor = true;
+                isChoosedMethod = true;
+            }
+        });
+
         open.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -131,7 +198,7 @@ public class EncryptController implements Initializable {
                         BufferedReader bfr = new BufferedReader(fr);
 
                         while ((str = bfr.readLine())!= null){
-                            input.appendText(str);
+                            input.appendText(str + '\n');
                         }
 
                         fr.close();
@@ -151,21 +218,22 @@ public class EncryptController implements Initializable {
         save.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                jfc.showSaveDialog(null);
 
                 try{
 
-                    FileWriter fw = new FileWriter(jfc.getSelectedFile());
-                    BufferedWriter bfw = new BufferedWriter(fw);
+                    if (output.getText().length() > 0){
+                        if (jfc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION){
+                            FileWriter fw = new FileWriter(jfc.getSelectedFile());
+                            BufferedWriter bfw = new BufferedWriter(fw);
+                            bfw.write(output.getText());
 
-                    bfw.write(output.getText());
-
-                    bfw.flush();
-                    fw.close();
+                            bfw.close();
+                        }
+                    }else {
+                        showAlertWindow("警告","沒有文字");
+                    }
 
                 }catch (IOException e){
-                    JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
-                }catch (NullPointerException e){
                     JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
                 }catch (Exception e){
                     JOptionPane.showMessageDialog(null,"ERROR:"+e.getMessage(),"警告",JOptionPane.INFORMATION_MESSAGE );
