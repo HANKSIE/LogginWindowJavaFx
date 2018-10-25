@@ -17,6 +17,7 @@ public class Main extends Application {
         StageManager.addStage("ooxxStage","ooxx","ooxxWindow.fxml",300,300);
         StageManager.addStage("recordStage","record","recordWindow.fxml",300,300);
         StageManager.addStage("encryptStage","encrypt","encrypt.fxml",485,390);
+        StageManager.addStage("fileHandleStage","fileHandle","fileHandle.fxml",450,140);
 
         //設置ooxx視窗的關閉按鈕行為
         StageManager.getStage("ooxxStage").setOnCloseRequest(event -> {
@@ -25,7 +26,8 @@ public class Main extends Application {
 
         //顯示登入視窗
         //StageManager.getStage("loginStage").show();
-        StageManager.getStage("encryptStage").show();
+//        StageManager.getStage("encryptStage").show();
+        StageManager.getStage("fileHandleStage").show();
 
     }
 
