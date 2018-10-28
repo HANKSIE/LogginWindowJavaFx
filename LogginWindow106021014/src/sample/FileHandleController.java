@@ -76,8 +76,8 @@ public class FileHandleController implements Initializable {
                             try {
 
                                 File file = new File(inputFileName);
-                                FileInputStream fr = new FileInputStream(file);
-                                BufferedInputStream bis = new BufferedInputStream(fr);
+                                FileReader fr = new FileReader(file);
+                                BufferedReader bis = new BufferedReader(fr);
                                 long length = file.length();
                                 int data[] = new int[(int)length];
 
@@ -109,12 +109,29 @@ public class FileHandleController implements Initializable {
                             //捕捉例外
                             try {
 
-                                File file = new File(inputFileName);
-                                FileInputStream fr = new FileInputStream(file);
-                                BufferedInputStream bis = new BufferedInputStream(fr);
-                                int length = bis.available();
-                                int data[] = new int[length];
+//                                File file = new File(inputFileName);
+//                                FileInputStream fr = new FileInputStream(file);
+//                                BufferedInputStream bis = new BufferedInputStream(fr);
+//                                int length = bis.available();
+//                                int data[] = new int[length];
+//
+//                                char keyArr[] = key.getText().toCharArray();
+//
+//                                int i = 0;
+//                                while ((data[i] = bis.read()) != -1) {
+//                                    data[i] = data[i] ^ (int) keyArr[i % keyArr.length];
+//                                    progressBar.setProgress((double) i / length);
+//                                    i++;
+//                                }
+//
+//                                bis.close();
+//                                fr.close();
 
+                                File file = new File(inputFileName);
+                                FileReader fr = new FileReader(file);
+                                BufferedReader bis = new BufferedReader(fr);
+                                long length = file.length();
+                                int data[] = new int[(int)length];
                                 char keyArr[] = key.getText().toCharArray();
 
                                 int i = 0;
@@ -126,6 +143,8 @@ public class FileHandleController implements Initializable {
 
                                 bis.close();
                                 fr.close();
+                                showAlertWindow("訊息","success!");
+
 
                             } catch (IOException e) {
                                 JOptionPane.showMessageDialog(null, "ERROR:" + e.getMessage(), "警告", JOptionPane.INFORMATION_MESSAGE);
