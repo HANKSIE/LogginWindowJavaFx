@@ -40,8 +40,7 @@ public class TimingController implements Initializable {
         timing = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                count++;
-                int tempCount = count;
+                 int tempCount = count;
 
                 hour= tempCount/3600;
                 tempCount = tempCount%3600;
@@ -49,8 +48,7 @@ public class TimingController implements Initializable {
                 tempCount = tempCount%60;
                 second = tempCount;
 
-
-                if (count <= 359999){ //當小於99:59:59時
+                if (count < 360000){ //當小於99:59:59時
 
                     testH1 = hour/10;
                     testH2 = hour%10;
@@ -65,7 +63,6 @@ public class TimingController implements Initializable {
                     min2.setImage(imgArr[testMin2]);
                     second1.setImage(imgArr[testSecond1]);
                     second2.setImage(imgArr[testSecond2]);
-
                 }else{
 
                     JOptionPane.showMessageDialog(null, "ERROR:超出計時器範圍","警告", JOptionPane.INFORMATION_MESSAGE);
