@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="433.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OoxxController">
+   <children>
+      <GridPane fx:id="panelMain" alignment="center" prefHeight="355.0" prefWidth="284.0">
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="46.0" minHeight="46.0" prefHeight="46.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="button7" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.rowIndex="24">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button8" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="24">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button9" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="24">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button6" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button5" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button4" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.rowIndex="11">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button3" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button2" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="button1" disable="true" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="?" textAlignment="CENTER" GridPane.rowIndex="5">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Label fx:id="showResult" GridPane.columnIndex="1" GridPane.rowIndex="25" />
+            <Button fx:id="exit" mnemonicParsing="false" onAction="#exit" prefHeight="23.0" prefWidth="44.0" text="exit" GridPane.columnIndex="2" GridPane.rowIndex="27" />
+            <Button fx:id="start" disable="true" mnemonicParsing="false" onAction="#startOnAction" prefHeight="23.0" prefWidth="43.0" text="start" GridPane.rowIndex="27" />
+            <Label text="順序:" GridPane.rowIndex="26" />
+            <Button fx:id="oPriority" mnemonicParsing="false" onAction="#o_Priority" prefHeight="23.0" prefWidth="44.0" text="o" GridPane.columnIndex="1" GridPane.rowIndex="26" />
+            <Button mnemonicParsing="false" onAction="#x_Priority" prefHeight="23.0" prefWidth="46.0" text="x" GridPane.columnIndex="2" GridPane.rowIndex="26" fx:id="xPriority" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

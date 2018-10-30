@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="243.0" prefWidth="278.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainWindowController">
+<AnchorPane prefHeight="381.0" prefWidth="427.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainWindowController">
    <children>
-      <BorderPane prefHeight="287.0" prefWidth="335.0">
+      <BorderPane prefHeight="432.0" prefWidth="458.0">
          <top>
-            <MenuBar BorderPane.alignment="CENTER">
+            <MenuBar prefHeight="32.0" prefWidth="415.0" BorderPane.alignment="CENTER">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="Game">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="play" mnemonicParsing="false" text="play" />
+                    <MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
+                <Menu mnemonicParsing="false" text="Tool">
+                     <items>
+                        <MenuItem fx:id="record" mnemonicParsing="false" text="record" />
+                         <MenuItem fx:id="encrypt" mnemonicParsing="false" text="encrypt" />
+                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" text="none" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
          </top>
          <center>
-            <Label opacity="0.37" prefHeight="103.0" prefWidth="165.0" text="Welcome to the Pageeee!" textFill="#000000d6" BorderPane.alignment="CENTER">
+            <Label opacity="0.37" prefHeight="280.0" prefWidth="386.0" text="Hellooooooo!!!" BorderPane.alignment="CENTER">
                <font>
-                  <Font size="25.0" />
+                  <Font size="52.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.9611650485436893">
+                     <stops>
+                        <Stop color="RED" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
          </center>
       </BorderPane>

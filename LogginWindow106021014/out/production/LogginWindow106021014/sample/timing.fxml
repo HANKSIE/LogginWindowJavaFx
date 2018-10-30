@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="389.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TimingController">
+   <children>
+      <BorderPane prefHeight="389.0" prefWidth="601.0">
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="start" mnemonicParsing="false" prefHeight="53.0" prefWidth="172.0" text="Start">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="restart" mnemonicParsing="false" prefHeight="53.0" prefWidth="172.0" text="Restart">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="stop" mnemonicParsing="false" prefHeight="53.0" prefWidth="172.0" text="Stop">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="hour1" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+                  <ImageView fx:id="hour2" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+                  <ImageView fx:id="colon1" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/11.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+                  <ImageView fx:id="min1" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+                  <ImageView fx:id="min2" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+                  <ImageView fx:id="colon2" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/11.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+                  <ImageView fx:id="second1" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+                  <ImageView fx:id="second2" fitHeight="141.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../timingSrc/0.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin></ImageView>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

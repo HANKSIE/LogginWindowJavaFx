@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="145.0" prefWidth="295.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EncryptController">
+   <children>
+      <BorderPane layoutX="1.0" layoutY="4.0" prefHeight="385.0" prefWidth="482.0">
+         <left>
+            <TextArea fx:id="input" prefHeight="385.0" prefWidth="191.0" promptText="輸入要加解密的文字" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <TextArea fx:id="output" editable="false" prefHeight="385.0" prefWidth="191.0" promptText="加解密後的文字" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></TextArea>
+         </right>
+         <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Method">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <MenuButton fx:id="methodMenu" mnemonicParsing="false" text="加密法">
+                    <items>
+                      <MenuItem fx:id="caesar" mnemonicParsing="false" text="Caesar" />
+                        <MenuItem mnemonicParsing="false" text="XOR" fx:id="xor" />
+                    </items>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </MenuButton>
+                  <Label text="Password">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="num">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <RadioButton fx:id="encrypt" mnemonicParsing="false" selected="true" text="Encrypt">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupBtn" />
+                     </toggleGroup>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="decrypt" mnemonicParsing="false" text="Decrypt" toggleGroup="$groupBtn">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <Button fx:id="clear" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Clear">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="run" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Run">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="close" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Close">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="open" mnemonicParsing="false" text="Open" />
+                        <MenuItem fx:id="save" mnemonicParsing="false" text="Save" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
