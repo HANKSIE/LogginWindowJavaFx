@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -13,14 +14,18 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Game">
                   <items>
-                        <MenuItem fx:id="play" mnemonicParsing="false" text="play" />
+                        <MenuItem fx:id="ooxx" mnemonicParsing="false" text="OOXX" />
+                      <MenuItem fx:id="move" mnemonicParsing="false" text="Move" />
                     <MenuItem fx:id="close" mnemonicParsing="false" text="Close" />
+
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Tool">
                      <items>
                         <MenuItem fx:id="record" mnemonicParsing="false" text="record" />
                          <MenuItem fx:id="encrypt" mnemonicParsing="false" text="encrypt" />
+                        <MenuItem fx:id="timing" mnemonicParsing="false" text="timing" />
+                        <MenuItem fx:id="fileHandle" mnemonicParsing="false" text="fileHandle" />
                      </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

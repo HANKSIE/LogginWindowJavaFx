@@ -40,7 +40,8 @@ public class TimingController implements Initializable {
         timing = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                 int tempCount = count;
+                count++;
+                int tempCount = count;
 
                 hour= tempCount/3600;
                 tempCount = tempCount%3600;

@@ -76,22 +76,21 @@ public class FileHandleController implements Initializable {
                             try {
 
                                 File file = new File(inputFileName);
-                                FileReader fr = new FileReader(file);
-                                BufferedReader bis = new BufferedReader(fr);
-                                long length = file.length();
-                                int data[] = new int[(int)length];
+                                FileInputStream fis = new FileInputStream(file);
 
-                                int i = 0;
-                                while ((data[i] = bis.read()) != -1) {
+                                int length = fis.available();
+                                int data[] = new int[length];
+
+                                for (int i=0; i<length; i++){
+                                    data[i] = fis.read();
                                     data[i] = data[i] + Integer.parseInt(key.getText());
+//                                    System.out.print((char)data[i]);
+
                                     progressBar.setProgress((double) i / length);
-                                    i++;
                                 }
 
-                                bis.close();
-                                fr.close();
+                                fis.close();
                                 showAlertWindow("訊息","success!");
-
 
                             } catch (NumberFormatException e) {
                                 //顯示警告訊息彈出視窗
@@ -109,42 +108,23 @@ public class FileHandleController implements Initializable {
                             //捕捉例外
                             try {
 
-//                                File file = new File(inputFileName);
-//                                FileInputStream fr = new FileInputStream(file);
-//                                BufferedInputStream bis = new BufferedInputStream(fr);
-//                                int length = bis.available();
-//                                int data[] = new int[length];
-//
-//                                char keyArr[] = key.getText().toCharArray();
-//
-//                                int i = 0;
-//                                while ((data[i] = bis.read()) != -1) {
-//                                    data[i] = data[i] ^ (int) keyArr[i % keyArr.length];
-//                                    progressBar.setProgress((double) i / length);
-//                                    i++;
-//                                }
-//
-//                                bis.close();
-//                                fr.close();
-
-                                File file = new File(inputFileName);
-                                FileReader fr = new FileReader(file);
-                                BufferedReader bis = new BufferedReader(fr);
-                                long length = file.length();
-                                int data[] = new int[(int)length];
                                 char keyArr[] = key.getText().toCharArray();
+                                File file = new File(inputFileName);
+                                FileInputStream fis = new FileInputStream(file);
 
-                                int i = 0;
-                                while ((data[i] = bis.read()) != -1) {
+                                int length = fis.available();
+                                int data[] = new int[length];
+
+                                for (int i=0; i<length; i++){
+                                    data[i] = fis.read();
                                     data[i] = data[i] ^ (int) keyArr[i % keyArr.length];
+                                    System.out.print((char)data[i]);
+
                                     progressBar.setProgress((double) i / length);
-                                    i++;
                                 }
 
-                                bis.close();
-                                fr.close();
+                                fis.close();
                                 showAlertWindow("訊息","success!");
-
 
                             } catch (IOException e) {
                                 JOptionPane.showMessageDialog(null, "ERROR:" + e.getMessage(), "警告", JOptionPane.INFORMATION_MESSAGE);

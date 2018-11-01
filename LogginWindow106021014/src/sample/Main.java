@@ -3,12 +3,12 @@ package sample;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.awt.*;
-
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        String stageName[] = {"ooxxStage","recordStage","encryptStage","fileHandleStage","timingStage"};
 
         //將Stage載入StageManager
         StageManager.addStage("keyboardStage","小鍵盤","keyboard.fxml",225,232);
@@ -20,19 +20,31 @@ public class Main extends Application {
         StageManager.addStage("fileHandleStage","fileHandle","fileHandle.fxml",450,140);
         StageManager.addStage("timingStage","Timing","timing.fxml",600,400);
 
-        //設置ooxx視窗的關閉按鈕行為
-        StageManager.getStage("ooxxStage").setOnCloseRequest(event -> {
-            StageManager.getStage("mainWindowStage").show();
+        //設置視窗的關閉按鈕行為
+        for (int i=0; i<stageName.length; i++){
+            int finalI = i;
+            StageManager.getStage(stageName[i]).setOnCloseRequest(event -> {
+                onCloseSet(stageName[finalI]);
+            });
+        }
+
+        StageManager.getStage("mainWindowStage").setOnCloseRequest(event -> {
+            System.exit(0);
+        });
+
+        StageManager.getStage("loginStage").setOnCloseRequest(event -> {
+            System.exit(0);
         });
 
         //顯示登入視窗
-        //StageManager.getStage("loginStage").show();
-//        StageManager.getStage("encryptStage").show();
-//        StageManager.getStage("fileHandleStage").show();
-          StageManager.getStage("timingStage").show();
+        StageManager.getStage("mainWindowStage").show();
 
     }
 
+    public void onCloseSet(String stageName){ //設定叉叉按鈕
+        StageManager.getStage("mainWindowStage").show();
+        StageManager.getStage(stageName).close();
+    }
 
     public static void main(String[] args) {
         launch(args);
