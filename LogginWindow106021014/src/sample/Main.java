@@ -19,7 +19,9 @@ public class Main extends Application {
         StageManager.addStage("encryptStage","encrypt","encrypt.fxml",485,390);
         StageManager.addStage("fileHandleStage","fileHandle","fileHandle.fxml",450,140);
         StageManager.addStage("timingStage","Timing","timing.fxml",600,400);
+        StageManager.addStage("moveStage","Move","moveWindow.fxml",600,400);
 
+        SaveReference.addReference("moveScene",StageManager.getStage("moveStage").getScene());
         //設置視窗的關閉按鈕行為
         for (int i=0; i<stageName.length; i++){
             int finalI = i;
@@ -37,7 +39,9 @@ public class Main extends Application {
         });
 
         //顯示登入視窗
-        StageManager.getStage("mainWindowStage").show();
+//        StageManager.getStage("mainWindowStage").show();
+
+        StageManager.getStage("moveStage").show();
 
     }
 
