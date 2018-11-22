@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -15,18 +18,21 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Random;
 
 public class Main extends Application {
-    /*move的資料*/
+    /*=========move的資料=========*/
     private int dir = 1;//一開始是往上跑
     private int value = 5;
     private boolean isStart = false;
     private Timer timer;
-    /*=========*/
+    /*============================*/
+    /*============================*/
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        String stageName[] = {"ooxxStage","recordStage","encryptStage","fileHandleStage","timingStage"};
+        String stageName[] = {"ooxxStage","recordStage","encryptStage","fileHandleStage","timingStage","moveStage"};
 
         //將Stage載入StageManager
         StageManager.addStage("keyboardStage","小鍵盤","keyboard.fxml",225,232);
@@ -38,6 +44,7 @@ public class Main extends Application {
         StageManager.addStage("fileHandleStage","fileHandle","fileHandle.fxml",450,140);
         StageManager.addStage("timingStage","Timing","timing.fxml",600,400);
         StageManager.addStage("moveStage","Move","moveWindow.fxml",600,400);
+        StageManager.addStage("multipleObjectStage","multipleObject","multipleObject.fxml",600,400);
 
 
         //設置視窗的關閉按鈕行為
@@ -59,13 +66,32 @@ public class Main extends Application {
 
 
 
+        setMoveWindowKeyEvent();
+
+        setMutipleKeyEvent();
         //顯示登入視窗
 //        StageManager.getStage("mainWindowStage").show();
 
-        StageManager.getStage("moveStage").show();
+        StageManager.getStage("multipleObjectStage").show();
 
-        setMoveWindowKeyEvent();
 
+
+    }
+
+    public void setMutipleKeyEvent(){
+        Scene thisScene = StageManager.getStage("multipleObjectStage").getScene();
+        AnchorPane anchorPane = (AnchorPane) thisScene.lookup("#anchorPane");
+        thisScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().equals(KeyCode.ENTER)){
+                    Character newChar = new Character("white",50,50);
+                    Thread newThread = new Thread(newChar);
+                    newThread.start();
+                    anchorPane.getChildren().add(newChar);
+                }
+            }
+        });
     }
 
     public void setMoveWindowKeyEvent(){
@@ -118,6 +144,7 @@ public class Main extends Application {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                System.out.println("X:"+obj.getLayoutX()+",Y:"+obj.getLayoutY());
                 switch (dir){
                     case 1:
                         obj.setLayoutY(obj.getLayoutY() - value);
@@ -144,6 +171,66 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
     }
 
+}
+
+class Character extends Label implements Runnable{
+
+    private Character thisCharacter = this;
+    private Timer timer;
+    private Random rand = new Random();
+    private int value = 20;
+    private int dir;
+
+   public Character(String backgroundColor, double width, double height){
+
+       this.setStyle(" -fx-background-color:white; ");
+       this.setText("hello");
+       this.setLayoutX(rand.nextInt(500));
+       this.setLayoutY(rand.nextInt(300));
+       this.setPrefSize(width,height);
+
+       timer = new Timer(100, new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+
+               dir = rand.nextInt(4);
+               timer.setDelay((rand.nextInt(10)+1)*100);
+
+               switch (dir){
+                   case 0: //上
+                       if (thisCharacter.getLayoutY() - value > 0){
+                           thisCharacter.setLayoutY(thisCharacter.getLayoutY()-value);
+                       }
+                       break;
+                   case 1: //下
+                       if ( (thisCharacter.getLayoutY() + thisCharacter.getHeight()) + value < 400){
+                           thisCharacter.setLayoutY(thisCharacter.getLayoutY()+value);
+                       }
+                       break;
+                   case 2: //左
+                       if (thisCharacter.getLayoutX() - value > 0){
+                           thisCharacter.setLayoutX(thisCharacter.getLayoutX()-value);
+                       }
+                       break;
+                   case 3: //右
+                       if ( (thisCharacter.getLayoutX()+thisCharacter.getWidth() ) + value < 600){
+                           thisCharacter.setLayoutX(thisCharacter.getLayoutX()+value);
+                       }
+                       break;
+               }
+
+           }
+       });
+
+   }
+
+
+
+    @Override
+    public void run() {
+       timer.start();
+    }
 }
