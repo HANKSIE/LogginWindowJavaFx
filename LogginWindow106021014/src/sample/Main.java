@@ -45,8 +45,8 @@ public class Main extends Application {
         StageManager.addStage("timingStage","Timing","timing.fxml",600,400);
         StageManager.addStage("moveStage","Move","moveWindow.fxml",600,400);
         StageManager.addStage("multipleObjectStage","multipleObject","multipleObject.fxml",600,400);
-        StageManager.addStage("iTalkStage","iTalk","iTalk.fxml",300,400);
-        StageManager.addStage("iTalkPaneStage","iTalk","iTalkPane.fxml",300,400);
+        StageManager.addStage("iTalkServerStage","iTalk","iTalkServer.fxml",300,400);
+        StageManager.addStage("iTalkPaneServerStage","iTalk","iTalkPaneServer.fxml",300,400);
 
         //設置視窗的關閉按鈕行為
         for (int i=0; i<stageName.length; i++){
@@ -73,7 +73,7 @@ public class Main extends Application {
         //顯示登入視窗
 //        StageManager.getStage("mainWindowStage").show();
 
-        StageManager.getStage("iTalkStage").show();
+        StageManager.getStage("iTalkServerStage").show();
 
 
 
